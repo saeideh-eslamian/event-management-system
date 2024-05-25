@@ -10,4 +10,4 @@ class Event(models.Model):
     attendees = models.ManyToManyField(User, related_name='events')
 
     def __str__(self):
-        return f"{self.title} date: {self.date}"
+        return f"{self.title} date of event: {self.date}"
