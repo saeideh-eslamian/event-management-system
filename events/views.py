@@ -16,6 +16,11 @@ class EventListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
+    def perform_create(self, serializer):
+        # Explicitly do not add attendees here
+        serializer.save()
+
+
 class EventRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     """Used for read-write-delete endpoints to represent a single model instance."""
     queryset = Event.objects.all()
